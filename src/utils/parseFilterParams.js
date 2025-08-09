@@ -7,19 +7,25 @@ const parseContactType = (contactType) => {
   if (isContactType(contactType)) return contactType;
 };
 
-// const parseIsFavourite = (isFavourite) => {
-//   const isBoolean = typeof isFavourite === 'boolean';
-//   if (isBoolean) return isFavourite;
-// };
+const parseIsFavourite = (isFavourite) => {
+  if (typeof isFavourite === 'boolean') return isFavourite;
+
+  if (typeof isFavourite === 'string') {
+    const lower = isFavourite.toLowerCase();
+    if (lower === 'true') return true;
+    if (lower === 'false') return false;
+  }
+  return undefined;
+};
 
 export const parseFilterParams = (query) => {
-  const { contactType } = query;
+  const { contactType, isFavourite } = query;
 
   const parsedContactType = parseContactType(contactType);
-  //   const parsedIsFavourite = parseIsFavourite(isFavourite);
+  const parsedIsFavourite = parseIsFavourite(isFavourite);
 
   return {
     contactType: parsedContactType,
-    // isFavourite: parsedIsFavourite,
+    isFavourite: parsedIsFavourite,
   };
 };
