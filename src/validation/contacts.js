@@ -49,7 +49,7 @@ export const updateContactsSchema = Joi.object({
     'string.min': 'Email should have at least 3 characters',
     'string.max': 'Email should have at most 50 characters',
     'any.required': 'Email is required',
-  }), //Email може мати довжину більшу, ніж 20 символів
+  }),
   isFavourite: Joi.boolean().messages({
     'boolean.base': 'Is Favourite should be true or false',
   }),
