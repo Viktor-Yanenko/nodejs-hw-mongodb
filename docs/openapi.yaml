@@ -1,0 +1,27 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Contacts App API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: REST API for managing user contacts.
+    Supports creating, reading, updating, and deleting (CRUD) contacts.
+    Includes user registration, login, logout, and JWT-based authentication.
+tags:
+  - name: Contacts
+    description: Operations for work with user's contacts.
+  - name: Auth
+    description: Operations for authentication and user management.
+servers:
+  - url: http://localhost:3000
+  - url: https://contacts-app-zohf.onrender.com
+paths:
+  /contacts/{id}:
+    get:
+      $ref: ../swagger/paths/contacts/{id}/get.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
