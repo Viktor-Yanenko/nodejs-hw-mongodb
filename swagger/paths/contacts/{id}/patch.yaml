@@ -16,7 +16,7 @@ parameters:
 requestBody:
   required: true
   content:
-    application/json:
+    multipart/form-data:
       schema:
         type: object
         properties:
@@ -38,7 +38,7 @@ requestBody:
             example: home
           photo:
             type: string
-            example: https://res.cloudinary.com/uqwgdu/image/upload/new-image.png
+            format: binary
       example:
         name: Jane Doe
         phoneNumber: '+380000000005'
